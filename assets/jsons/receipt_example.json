@@ -1,0 +1,17 @@
+{
+  "overall": {
+    "subtotal": 999.99,
+    "tax": 999.99,
+    "total": 999.99},
+  "items": [
+    {
+      "name": "Walmart item 1",
+      "cost": 5.54,
+      "link": "Only find links for Walmart purchases"
+    },
+    {
+      "name": "Generic item 2",
+      "cost": 5.57
+    }
+  ]
+}
