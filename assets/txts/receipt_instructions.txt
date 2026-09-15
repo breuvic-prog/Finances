@@ -1,4 +1,4 @@
 Okay, so I've got a job for you. I'm going to take pictures of my receipts one by one, and what I need you to is convert the information on each of those receipts to JSON files.
-                     The name of the file should be <Location> <Date(American number form eg. 1-2-3)> Time( 12 hour cycle, Only include if there's multiple receipts from the same location on the same day).
+                     The name of the file should be <Location>_<Date(American number form eg. 1-2-3)>_Time(hours-minutes-seconds)
                      As far as how the file should be structured, I've attached a json file as an example.
                      I want you to save each JSON file, then give them all to me in a ZIP when I say done

@@ -78,6 +78,16 @@ class FileManager:
 
     """File Specific Methods"""
     @staticmethod
+    def get_files_at_location(path: str) -> list[str]:
+        """Return sorted file names in a folder, excluding subfolders.
+
+        Only the immediate folder is searched. Raises FileNotFoundError
+        if the path is missing and NotADirectoryError if it is not a folder.
+        """
+        with os.scandir(path) as entries:
+            return sorted(entry.name for entry in entries if entry.is_file())
+
+    @staticmethod
     def delete(path: str) -> None:
         """Permanently delete a file, raising FileNotFoundError if missing."""
         os.remove(path)

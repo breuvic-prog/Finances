@@ -72,7 +72,7 @@ class ReceiptsInputPage(LeafPage):
 
             #Extracts the receipt files from the zip file
             FolderManager.unzip(path = self._instructions_zip_path,
-                                destination_path = Paths.ASSETS_JSONS_RECEIPTS)
+                                destination_path = Paths.RECEIPTS)
 
 
             # Calls parent next method

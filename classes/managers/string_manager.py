@@ -6,6 +6,14 @@ TRUE = "true"
 FALSE = "false"
 
 class StringManager:
+    @staticmethod
+    def split(string: str, separator: str | None = None, maxsplit: int = -1) -> list[str]:
+        """Split a string on whitespace or an explicit separator.
+
+        maxsplit limits the number of splits; -1 means no limit.
+        An empty separator raises ValueError, matching str.split.
+        """
+        return string.split(separator, maxsplit)
     
     @staticmethod
     def Capitalize(string):

@@ -11,6 +11,7 @@ class Paths(StrEnum):
     ASSETS_CSVS = PathManager.join(Folders.ASSETS, Folders.CSVS)
     ASSETS_JSONS = PathManager.join(Folders.ASSETS, Folders.JSONS)
     ASSETS_TXTS = PathManager.join(Folders.ASSETS, Folders.TXTS)
-    ASSETS_JSONS_RECEIPTS = PathManager.join(ASSETS_JSONS, Folders.RECEIPTS)
+    RECEIPTS = PathManager.join(ASSETS_JSONS, Folders.RECEIPTS)
+
 
 
