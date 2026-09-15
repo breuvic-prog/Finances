@@ -184,7 +184,7 @@ def _import_receipts() -> list[Receipt]:
                                 items = grocery_items))
 
     return receipts
-def _import_credit_card_transactions() -> list:
+def _import_credit_card_transactions() -> list[FinancialTransaction]:
     #Final credit card activity
     credit_card_transactions = []
 
@@ -207,7 +207,7 @@ def _import_credit_card_transactions() -> list:
                                                                                  invert_amount = True))
 
     return credit_card_transactions
-def _import_checking_account_transactions() -> list:
+def _import_checking_account_transactions() -> list[FinancialTransaction]:
     #Final checking account transactions
     checking_account_transactions = []
 
