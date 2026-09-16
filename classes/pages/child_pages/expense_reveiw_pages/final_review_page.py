@@ -1,6 +1,7 @@
 """Imports"""
 import math
 
+from classes.custom_tk_components.tk_table_class import TkTable
 from classes.financial_transaction_class import FinancialTransaction
 from classes.grocery_item import GroceryItem
 from classes.managers.date_manager import DateManager
@@ -13,6 +14,7 @@ import tkinter as tk
 from collections.abc import Callable
 from classes.general.date_class import Date
 from classes.receipt_class import Receipt
+from classes.table_column_class import TableColumn
 from enums.files_enum import Files
 from enums.finances.categories_enum import Categories
 from enums.finances.descriptions_enum import Descriptions
@@ -252,18 +254,23 @@ class FinalReviewPage(LeafPage):
 
 
     def _setup_components(self) -> None:
-        #The primary grid
-        grid = tk.Frame(self._root)
 
+        table = TkTable(self._root,
+                        columns = [TableColumn(text = "Date",
+                                               data_type = Date),
+                                   TableColumn(text = "Location",
+                                               data_type = str),
+                                   TableColumn(text = "Amount",
+                                               data_type = float),
+                                   TableColumn(text = "Description",
+                                               data_type = str),
+                                   TableColumn(text = "Category",
+                                               data_type = str),
+                                   TableColumn(text = "Is Essential?",
+                                               data_type = bool)])
+        table.pack()
 
-        #Adds table headers
-        tk.Label(grid, text = "Date", borderwidth=2, relief="solid").grid(row = 0, column = 0)
-        tk.Label(grid, text = "Location", borderwidth=2, relief="solid").grid(row = 0, column = 1)
-        tk.Label(grid, text = "Amount", borderwidth=2, relief="solid").grid(row = 0, column = 2)
-        tk.Label(grid, text = "Description", borderwidth=2, relief="solid").grid(row = 0, column = 3)
-        tk.Label(grid, text = "Category", borderwidth=2, relief="solid").grid(row = 0, column = 4)
-        tk.Label(grid, text = "Is Essential?", borderwidth=2, relief="solid").grid(row = 0, column = 5)
-
+        """
         # Goes through all the transactions
         for i, transaction in enumerate(self._transactions):
             tk.Label(grid, text = str(transaction.date)).grid(row=i+1, column=0)
@@ -292,6 +299,7 @@ class FinalReviewPage(LeafPage):
 
 
         grid.pack()
+        """
 
 
 

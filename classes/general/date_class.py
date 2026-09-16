@@ -1,6 +1,5 @@
 """Imports"""
 
-
 class Date:
     def __init__(self, day:int,
                  month:int,
@@ -19,19 +18,19 @@ class Date:
     def year(self):
         return self._year
 
-    def __lt__(self, other: Date):
+    def __lt__(self, other):
         return ((self.year, self.month, self.day)
                 < (other.year, other.month, other.day))
 
-    def __le__(self, other: Date):
+    def __le__(self, other):
         return ((self.year, self.month, self.day)
                 <= (other.year, other.month, other.day))
 
-    def __gt__(self, other: Date):
+    def __gt__(self, other):
         return ((self.year, self.month, self.day)
                 > (other.year, other.month, other.day))
 
-    def __ge__(self, other: Date):
+    def __ge__(self, other):
         return ((self.year, self.month, self.day)
                 >= (other.year, other.month, other.day))
 
