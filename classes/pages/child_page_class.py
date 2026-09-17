@@ -15,7 +15,7 @@ class ChildPage:
 
     def activate(self):
         # Packs the component
-        self._root.pack()
+        self._root.pack(fill="both", expand=True)
 
     def deactivate(self):
         # Unpacks the component

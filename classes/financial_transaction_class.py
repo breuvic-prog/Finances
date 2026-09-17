@@ -1,17 +1,19 @@
 """Imports"""
 from classes.general.date_class import Date
+from classes.general.dollar_amount_class import DollarAmount
 from enums.finances.categories_enum import Categories
 from enums.finances.descriptions_enum import Descriptions
+from enums.finances.is_essential_enum import IsEssential
 from enums.locations_enum import Locations
 
 
 class FinancialTransaction:
     def __init__(self, date:Date,
-                 amount: float,
+                 amount: DollarAmount,
                  location:Locations|None = None,
                  description:Descriptions|None = None,
                  category:Categories|None = None,
-                 is_essential:bool|None = None):
+                 is_essential:IsEssential|None = None):
         self._date = date
         self._location = location
         self._amount = amount

@@ -3,6 +3,7 @@ import math
 
 from classes.custom_tk_components.tk_table_class import TkTable
 from classes.financial_transaction_class import FinancialTransaction
+from classes.general.dollar_amount_class import DollarAmount
 from classes.grocery_item import GroceryItem
 from classes.managers.date_manager import DateManager
 from classes.managers.file_manager import FileManager
@@ -18,6 +19,7 @@ from classes.table_column_class import TableColumn
 from enums.files_enum import Files
 from enums.finances.categories_enum import Categories
 from enums.finances.descriptions_enum import Descriptions
+from enums.finances.is_essential_enum import IsEssential
 from enums.locations_enum import Locations
 from enums.paths_enum import Paths
 from classes.general.time_class import Time
@@ -99,7 +101,7 @@ def _determine_transaction_location(row:dict) -> Locations|None:
 
     return location
 def _determine_transaction_amount(row: dict,
-                                  invert_amount: bool) -> float:
+                                  invert_amount: bool) -> DollarAmount:
     # Gets the amount
     amount = float(row[AMOUNT])
 
@@ -107,7 +109,7 @@ def _determine_transaction_amount(row: dict,
     if invert_amount:
         amount = -amount
 
-    return amount
+    return DollarAmount(amount)
 def _set_transaction_description(row: dict,
                                  existing_object:FinancialTransaction) -> None:
     #Final description
@@ -124,7 +126,7 @@ def _set_transaction_is_essential(row: dict,
                                   existing_object:FinancialTransaction) -> None:
     #Checks if the transaction is essential or not by default
     if existing_object.location == Locations.VENDING_MACHINE:
-        existing_object.is_essential = False
+        existing_object.is_essential = IsEssential.NON_ESSENTIAL
 
 def _create_financial_transaction_object(row: dict,
                                          invert_amount:bool = False) -> FinancialTransaction:
@@ -214,7 +216,6 @@ def _import_checking_account_transactions() -> list[FinancialTransaction]:
     checking_account_transactions = []
 
     return checking_account_transactions
-
 def _import_transactions() -> list[FinancialTransaction]:
     #Gets the credit card transactions
     transactions = _import_credit_card_transactions()
@@ -234,9 +235,7 @@ def _import_transactions() -> list[FinancialTransaction]:
         #Decrements the index
         i -= 1
 
-
-
-    #TODO:Sorts the transactions by date
+    #Sorts the transactions by date
     transactions.sort(key=lambda transaction: transaction.date)
 
     return transactions
@@ -254,55 +253,41 @@ class FinalReviewPage(LeafPage):
 
 
     def _setup_components(self) -> None:
-
+        #Creates the table component
         table = TkTable(self._root,
                         columns = [TableColumn(text = "Date",
                                                data_type = Date),
                                    TableColumn(text = "Location",
                                                data_type = str),
                                    TableColumn(text = "Amount",
-                                               data_type = float),
+                                               data_type = DollarAmount),
                                    TableColumn(text = "Description",
                                                data_type = str),
                                    TableColumn(text = "Category",
                                                data_type = str),
                                    TableColumn(text = "Is Essential?",
-                                               data_type = bool)])
-        table.pack()
+                                               data_type = IsEssential)])
+        table.pack(fill="both", expand=True)
 
-        """
-        # Goes through all the transactions
+        #Goes through all the transactions
         for i, transaction in enumerate(self._transactions):
-            tk.Label(grid, text = str(transaction.date)).grid(row=i+1, column=0)
-            tk.Label(grid, text=StringManager.Capitalize(transaction.location)).grid(row=i + 1, column=1)
+            #Capitalizes location if not none
+            location = transaction.location
+            if transaction.location is not None:
+                location = StringManager.Capitalize(transaction.location)
 
-            if transaction.amount > 0:
-                sign = "+"
-            else:
-                sign = "-"
-            tk.Label(grid, text=f"{sign}${transaction.amount:.2f}").grid(row=i + 1, column=2)
-            tk.Label(grid, text=transaction.description).grid(row=i + 1, column=3)
-            tk.Label(grid, text=transaction.category).grid(row=i + 1, column=4)
-
-            if transaction.is_essential is None:
-                tk.Label(grid, text=str(transaction.is_essential)).grid(row=i + 1, column=5)
-            elif transaction.is_essential:
-                tk.Label(grid, text=str(transaction.is_essential),
-                         bg = "green").grid(row=i + 1, column=5)
-            else:
-                tk.Label(grid, text=str(transaction.is_essential),
-                         bg="red").grid(row=i + 1, column=5)
-
-            #TODO:Still need to attach receipts somewhere
+            # Capitalizes category if not none
+            category = transaction.category
+            if transaction.category is not None:
+                category = StringManager.Capitalize(transaction.category)
 
 
-
-
-        grid.pack()
-        """
-
-
-
+            table.add_row((transaction.date,
+                           location,
+                           transaction.amount,
+                           transaction.description,
+                           category,
+                           transaction.is_essential))
 
 
     def _finalize(self) -> None:
