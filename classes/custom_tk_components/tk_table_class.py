@@ -1,7 +1,11 @@
 """Imports"""
 import tkinter as tk
+from enum import Enum
+
+from classes.general.dollar_amount_class import DollarAmount
 from classes.table_column_class import TableColumn
 from enums.finances.is_essential_enum import IsEssential
+from tkinter import ttk
 
 
 class TkTable(tk.Frame):
@@ -123,7 +127,7 @@ class TkTable(tk.Frame):
 
         #Checks if the datatype match the columns
         for i, item in enumerate(row):
-            if type(item) != self._columns[i].data_type and item is not None:
+            if item is not None and not isinstance(item, self._columns[i].data_type):
                 raise TypeError(f"Datatype of {item} does not match it's column")
 
         # Adds the actual components
@@ -131,24 +135,38 @@ class TkTable(tk.Frame):
         self._components.append([])
         for i, item in enumerate(row):
             #Creates the label
-            label = tk.Label(self._body, text = str(item))
+            data_type = self._columns[i].data_type
+
+            if issubclass(data_type, Enum) and item is None:
+                component = ttk.Combobox(self._body,
+                                         values = list(self.columns[i].data_type),
+                                         state="readonly")
+                component.set(str(None))
+            else:
+                component = tk.Label(self._body, text = str(item))
 
             #Applies custom rules
             if type(item) == IsEssential:
                 if item == IsEssential.ESSENTIAL:
-                    label.config(bg = "green")
+                    component.config(bg = "green")
                 elif item == IsEssential.NON_ESSENTIAL:
-                    label.config(bg = "red")
+                    component.config(bg = "red")
+            elif type(item) == DollarAmount:
+                if item > 0:
+                    component.config(bg = "green")
+                elif item < 0:
+                    component.config(bg = "red")
 
-            self._bind_mousewheel(label)
+
+            self._bind_mousewheel(component)
             self._column_widths[i] = max(self._column_widths[i],
-                                         label.winfo_reqwidth())
+                                         component.winfo_reqwidth())
 
             #Adds the component to the list
-            self._components[row_index].append(label)
+            self._components[row_index].append(component)
 
             #Packs the component
-            label.grid(row = row_index,
+            component.grid(row = row_index,
                        column = i,
                        sticky="nsew")
         self._resize_content()

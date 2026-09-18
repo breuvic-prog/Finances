@@ -1,5 +1,4 @@
 """Imports"""
-import math
 
 from classes.custom_tk_components.tk_table_class import TkTable
 from classes.financial_transaction_class import FinancialTransaction
@@ -18,11 +17,13 @@ from classes.receipt_class import Receipt
 from classes.table_column_class import TableColumn
 from enums.files_enum import Files
 from enums.finances.categories_enum import Categories
-from enums.finances.descriptions_enum import Descriptions
+from enums.finances.credit_card.credit_card_categories_enum import CreditCardCategories
+from enums.finances.credit_card.credit_card_headers_enum import CreditCardHeaders
 from enums.finances.is_essential_enum import IsEssential
-from enums.locations_enum import Locations
+from enums.finances.locations_enum import Locations
 from enums.paths_enum import Paths
 from classes.general.time_class import Time
+from tkinter import messagebox
 
 """Constants"""
 GENERAL = "general"
@@ -33,9 +34,8 @@ TOTAL = "total"
 NAME = "name"
 PRICE = "price"
 LINK = "link"
-TRANS_DATE = "Trans. Date"
-DESCRIPTION = "Description"
-AMOUNT = "Amount"
+CREDIT_CARD_WINDOW_START_DAY = 3
+
 
 location_keywords = {
     "kwik":Locations.KWIK_TRIP,
@@ -73,20 +73,15 @@ def _extract_info_from_receipt_name(receipt_file_name: str) -> tuple[str, Date, 
     return location, date, time
 def _determine_transaction_date(row:dict) -> Date:
     #Splits the original date string
-    date_parts = StringManager.split(string = row[TRANS_DATE],
+    date_parts = StringManager.split(string = row[CreditCardHeaders.TRANS_DATE],
                                      separator = "/")
 
     return Date(month = int(date_parts[0]),
                     day = int(date_parts[1]),
                     year = int(date_parts[2]))
 def _determine_transaction_location(row:dict) -> Locations|None:
-    #The final location
-    location = None
-
     #Finds and lowercases the description
-    lowercase_description = StringManager.Lowercase(row[DESCRIPTION])
-
-
+    lowercase_description = StringManager.Lowercase(row[CreditCardHeaders.DESCRIPTION])
 
     #Checks for specific keywords first
     for keyword in location_keywords:
@@ -96,14 +91,14 @@ def _determine_transaction_location(row:dict) -> Locations|None:
     #Checks if a whole location is included
     for location in list(Locations):
         #Checks for exact matches
-        if location in lowercase_description:
+        if StringManager.Lowercase(location) in lowercase_description:
             return location
 
-    return location
+    return None
 def _determine_transaction_amount(row: dict,
                                   invert_amount: bool) -> DollarAmount:
     # Gets the amount
-    amount = float(row[AMOUNT])
+    amount = float(row[CreditCardHeaders.AMOUNT])
 
     # Inverts if need be
     if invert_amount:
@@ -113,10 +108,10 @@ def _determine_transaction_amount(row: dict,
 def _set_transaction_description(row: dict,
                                  existing_object:FinancialTransaction) -> None:
     #Final description
-    if 1 == 2:
+    if 1==2:
         pass
     else:
-        existing_object.description = row[DESCRIPTION]
+        existing_object.description = row[CreditCardHeaders.DESCRIPTION]
 
 def _set_transaction_category(row: dict,
                               existing_object:FinancialTransaction) -> None:
@@ -127,6 +122,15 @@ def _set_transaction_is_essential(row: dict,
     #Checks if the transaction is essential or not by default
     if existing_object.location == Locations.VENDING_MACHINE:
         existing_object.is_essential = IsEssential.NON_ESSENTIAL
+    elif existing_object.category == Categories.CAR:
+        existing_object.is_essential = IsEssential.ESSENTIAL
+    elif (row[CreditCardHeaders.CATEGORY] == CreditCardCategories.PAYMENTS_AND_CREDITS or
+          row[CreditCardHeaders.CATEGORY] == CreditCardCategories.AWARDS_AND_REBATE_CREDITS):
+        existing_object.location = Locations.NOT_INCLUDED
+        existing_object.category = Categories.NOT_INCLUDED
+        existing_object.is_essential = IsEssential.NOT_INCLUDED
+
+
 
 def _create_financial_transaction_object(row: dict,
                                          invert_amount:bool = False) -> FinancialTransaction:
@@ -208,7 +212,7 @@ def _import_credit_card_transactions() -> list[FinancialTransaction]:
         for row in data:
             #Creates the object
             credit_card_transactions.append(_create_financial_transaction_object(row = row,
-                                                                                 invert_amount = True))
+                                                          invert_amount = True))
 
     return credit_card_transactions
 def _import_checking_account_transactions() -> list[FinancialTransaction]:
@@ -249,6 +253,10 @@ class FinalReviewPage(LeafPage):
         self._transactions:list[FinancialTransaction] = _import_transactions()
 
         super().__init__(parent_root, parent_next_method)
+        #TODO:Still need to tie receipts to transactions
+        #TODO:Still need to imports the pdf
+        #TODO:Still need to figure out what to do or if to do anything with payments from credit->debit
+        #TODO:Maybe move certain things into one method for determining things where it makes sense, like payments
 
 
 
@@ -258,28 +266,28 @@ class FinalReviewPage(LeafPage):
                         columns = [TableColumn(text = "Date",
                                                data_type = Date),
                                    TableColumn(text = "Location",
-                                               data_type = str),
+                                               data_type = Locations),
                                    TableColumn(text = "Amount",
                                                data_type = DollarAmount),
                                    TableColumn(text = "Description",
                                                data_type = str),
                                    TableColumn(text = "Category",
-                                               data_type = str),
+                                               data_type = Categories),
                                    TableColumn(text = "Is Essential?",
                                                data_type = IsEssential)])
         table.pack(fill="both", expand=True)
 
         #Goes through all the transactions
         for i, transaction in enumerate(self._transactions):
-            #Capitalizes location if not none
-            location = transaction.location
-            if transaction.location is not None:
-                location = StringManager.Capitalize(transaction.location)
-
             # Capitalizes category if not none
             category = transaction.category
             if transaction.category is not None:
-                category = StringManager.Capitalize(transaction.category)
+                category = transaction.category
+
+            #Capitalizes location if not none
+            location = transaction.location
+            if transaction.location is not None:
+                location = transaction.location
 
 
             table.add_row((transaction.date,
@@ -288,8 +296,20 @@ class FinalReviewPage(LeafPage):
                            transaction.description,
                            category,
                            transaction.is_essential))
-
+        tk.Button(self._root,
+                  text = "Finalize",
+                  command = self._finalize,
+                  borderwidth=2,
+                  relief="ridge",
+                  height = 2).pack(fill="both", expand=True)
 
     def _finalize(self) -> None:
-        # Calls parent next method
-        self._parent_next_method()
+        #Need to check if everything's been assigned first
+        confirmed = messagebox.askyesno(
+            "Confirm",
+            "Are you sure you want to finalize these transactions?",
+            parent=self._root,
+        )
+
+        if confirmed:
+            self._parent_next_method()

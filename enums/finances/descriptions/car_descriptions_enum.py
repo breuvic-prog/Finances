@@ -3,14 +3,14 @@ from enums.finances.descriptions_enum import Descriptions
 
 class CarDescriptions(Descriptions):
     #Car
-    GAS = "gas"
-    LOAN = "loan"
-    INSURANCE = "car_insurance"
-    OIL_CHANGE = "car_oil_change"
-    BRAKES = "car_brakes"
-    TIRES = "car_tires"
-    REGISTRATION = "car_registration"
-    TIRE_ROTATION = "car_tire_rotation"
+    GAS = "Gas"
+    LOAN = "Car Loan"
+    INSURANCE = "Car Insurance"
+    OIL_CHANGE = "Oil Change"
+    BRAKES = "Brakes"
+    TIRES = "Tires"
+    REGISTRATION = "Car Registration"
+    TIRE_ROTATION = "Tire Rotation"
 
 
 

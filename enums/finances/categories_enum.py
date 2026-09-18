@@ -2,12 +2,13 @@
 from enum import StrEnum
 
 class Categories(StrEnum):
-    CAR = "car"
-    HOUSING = "housing"
-    SUBSCRIPTIONS = "subscriptions"
-    GROCERIES = "groceries"
-    STUDENT_LOANS = "student_loans"
-    PAYCHECK = "paycheck"
-    DISCRETIONARY_SPENDING = "discretionary_spending"
+    CAR = "Car"
+    HOUSING = "Housing"
+    SUBSCRIPTIONS = "Subscriptions"
+    GROCERIES = "Groceries"
+    STUDENT_LOANS = "Student Loans"
+    PAYCHECK = "Paycheck"
+    DISCRETIONARY_SPENDING = "Discretionary Spending"
+    NOT_INCLUDED = "Not Included"
 
 

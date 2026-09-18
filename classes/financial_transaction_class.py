@@ -4,7 +4,7 @@ from classes.general.dollar_amount_class import DollarAmount
 from enums.finances.categories_enum import Categories
 from enums.finances.descriptions_enum import Descriptions
 from enums.finances.is_essential_enum import IsEssential
-from enums.locations_enum import Locations
+from enums.finances.locations_enum import Locations
 
 
 class FinancialTransaction:
