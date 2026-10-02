@@ -1,0 +1,29 @@
+{
+  "general": {
+    "subtotal": 16.08,
+    "tax": 0.88,
+    "total": 16.96
+  },
+  "items": [
+    {
+      "name": "Wisconsin Cheese Sauce",
+      "price": 1.19,
+      "quantity": 1
+    },
+    {
+      "name": "4 Piece Chicken Tenders Value Basket",
+      "price": 13.19,
+      "quantity": 1
+    },
+    {
+      "name": "Medium Cheese Curds Upgrade",
+      "price": 1.5,
+      "quantity": 1
+    },
+    {
+      "name": "Large Fountain Drink Upgrade",
+      "price": 0.2,
+      "quantity": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "general": {
+    "subtotal": 1.35,
+    "tax": 0.0,
+    "total": 1.35
+  },
+  "items": [
+    {
+      "name": "Mini Popcorn Chicken",
+      "price": 1.35,
+      "link": "https://www.walmart.com/search?q=194346268610",
+      "quantity": 1
+    }
+  ]
+}

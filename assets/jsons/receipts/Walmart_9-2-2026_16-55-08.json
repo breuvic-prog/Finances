@@ -1,0 +1,15 @@
+{
+  "general": {
+    "subtotal": 2.66,
+    "tax": 0.15,
+    "total": 2.81
+  },
+  "items": [
+    {
+      "name": "Freshness Guaranteed Hot & Ready-to-Eat Popcorn Chicken",
+      "price": 2.66,
+      "link": "https://www.walmart.com/ip/Freshness-Guaranteed-Hot-Ready-To-Eat-Popcorn-Chicken/469615088",
+      "quantity": 1
+    }
+  ]
+}

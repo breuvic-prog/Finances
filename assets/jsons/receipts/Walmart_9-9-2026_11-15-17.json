@@ -1,0 +1,21 @@
+{
+  "general": {
+    "subtotal": 5.82,
+    "tax": 0.25,
+    "total": 6.07
+  },
+  "items": [
+    {
+      "name": "Hot Food",
+      "price": 4.47,
+      "link": "https://www.walmart.com/search?q=263606600000",
+      "quantity": 1
+    },
+    {
+      "name": "Pringles Cheddar Cheese Potato Crisps, Grab N' Go, 2.5 oz",
+      "price": 1.35,
+      "link": "https://www.walmart.com/ip/38253412",
+      "quantity": 1
+    }
+  ]
+}

@@ -19,14 +19,11 @@ class ExpenseReviewPage(BranchPage):
 
     def _create_pages(self, parent_root: tk.Tk | tk.Frame,
                       parent_next_method: Callable) -> list[ChildPage]:
-        return [FinalReviewPage(parent_root = parent_root,
-                                parent_next_method = parent_next_method)]
-
-        """
-            [CreditCardExpensesPage(parent_root = parent_root,
+        return [CreditCardExpensesPage(parent_root = parent_root,
                                        parent_next_method = parent_next_method),
                 CheckingAccountExpensesPage(parent_root = parent_root,
                                             parent_next_method = parent_next_method),
                 ReceiptsInputPage(parent_root = parent_root,
-                                  parent_next_method = parent_next_method)]
-        """
+                                  parent_next_method = parent_next_method),
+                FinalReviewPage(parent_root = parent_root,
+                                parent_next_method = parent_next_method)]

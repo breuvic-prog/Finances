@@ -11,8 +11,17 @@ class Locations(StrEnum):
     APPLE = 'Apple'
     DOLLAR_GENERAL = 'Dollar General'
     FREEDOM_BANK = 'Freedom Bank'
+    FIRST_SECURITY_BANK = 'First Security Bank'
     HUCKLEBERRYS = 'Huckleberrys'
+    CULVERS = 'Culvers'
+    PRAIRIE_CINEMA = 'Prairie Cinema'
     NOT_INCLUDED = "Not Included"
+    NEWEGG = 'Newegg'
+    STEAM = 'Steam'
+    PARCHMENT = 'Parchment'
+    PROTON = 'Proton'
+    FIELDPRINT = 'Fieldprint'
+    NEXUS = 'Nexus'
 
 
 

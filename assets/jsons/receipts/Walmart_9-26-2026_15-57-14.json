@@ -1,0 +1,15 @@
+{
+  "general": {
+    "subtotal": 2.5,
+    "tax": 0.14,
+    "total": 2.64
+  },
+  "items": [
+    {
+      "name": "Diet Pepsi Cola Soda Pop, 20 fl oz Bottle",
+      "price": 2.5,
+      "link": "https://www.walmart.com/ip/519936626",
+      "quantity": 1
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "general": {
+    "subtotal": 1.35,
+    "tax": 0.07,
+    "total": 1.42
+  },
+  "items": [
+    {
+      "name": "Deli Hot Dog",
+      "price": 1.35,
+      "link": "https://www.walmart.com/search?q=261325000000",
+      "quantity": 1
+    }
+  ]
+}

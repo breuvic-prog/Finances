@@ -1,0 +1,15 @@
+{
+  "general": {
+    "subtotal": 17.97,
+    "tax": 0.99,
+    "total": 18.96
+  },
+  "items": [
+    {
+      "name": "Battery Organizer",
+      "price": 17.97,
+      "link": "https://www.walmart.com/search?q=820909841100",
+      "quantity": 1
+    }
+  ]
+}

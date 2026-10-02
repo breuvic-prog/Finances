@@ -1,6 +1,7 @@
 """Imports"""
 from classes.general.date_class import Date
 from classes.general.dollar_amount_class import DollarAmount
+from classes.receipt_class import Receipt
 from enums.finances.categories_enum import Categories
 from enums.finances.descriptions_enum import Descriptions
 from enums.finances.is_essential_enum import IsEssential
@@ -13,13 +14,15 @@ class FinancialTransaction:
                  location:Locations|None = None,
                  description:Descriptions|None = None,
                  category:Categories|None = None,
-                 is_essential:IsEssential|None = None):
+                 is_essential:IsEssential|None = None,
+                 receipt:Receipt|None = None):
         self._date = date
         self._location = location
         self._amount = amount
         self._description = description
         self._category = category
         self._is_essential = is_essential
+        self._receipt = receipt
 
     """Getters"""
     @property
@@ -40,6 +43,9 @@ class FinancialTransaction:
     @property
     def is_essential(self):
         return self._is_essential
+    @property
+    def receipt(self) -> Receipt | None:
+        return self._receipt
 
     """Setters"""
     @location.setter
@@ -54,6 +60,9 @@ class FinancialTransaction:
     @is_essential.setter
     def is_essential(self, is_essential:bool):
         self._is_essential = is_essential
+    @receipt.setter
+    def receipt(self, receipt:Receipt|None) -> None:
+        self._receipt = receipt
 
     def __str__(self):
         return_string = "----Financial Transaction----\n"

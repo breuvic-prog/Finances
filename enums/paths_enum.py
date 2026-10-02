@@ -9,6 +9,7 @@ from enums.folders_enum import Folders
 class Paths(StrEnum):
     DOWNLOADS = str(Path.home() / "Downloads")
     ASSETS_CSVS = PathManager.join(Folders.ASSETS, Folders.CSVS)
+    ASSETS_PDFS = PathManager.join(Folders.ASSETS, Folders.PDFS)
     ASSETS_JSONS = PathManager.join(Folders.ASSETS, Folders.JSONS)
     ASSETS_TXTS = PathManager.join(Folders.ASSETS, Folders.TXTS)
     RECEIPTS = PathManager.join(ASSETS_JSONS, Folders.RECEIPTS)

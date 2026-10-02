@@ -1,0 +1,14 @@
+{
+  "general": {
+    "subtotal": 349.0,
+    "tax": 0.0,
+    "total": 349.0
+  },
+  "items": [
+    {
+      "name": "Cash withdrawal",
+      "price": 349.0,
+      "quantity": 1
+    }
+  ]
+}

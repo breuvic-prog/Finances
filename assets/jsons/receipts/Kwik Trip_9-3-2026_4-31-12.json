@@ -1,0 +1,24 @@
+{
+  "general": {
+    "subtotal": 9.07,
+    "tax": 0.5,
+    "total": 9.57
+  },
+  "items": [
+    {
+      "name": "Mtn Dew 20oz",
+      "price": 2.79,
+      "quantity": 1
+    },
+    {
+      "name": "Jr Chicken Sandwich",
+      "price": 2.99,
+      "quantity": 1
+    },
+    {
+      "name": "Jr Cheeseburger",
+      "price": 3.29,
+      "quantity": 1
+    }
+  ]
+}

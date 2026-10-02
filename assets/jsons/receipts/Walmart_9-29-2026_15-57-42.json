@@ -1,0 +1,21 @@
+{
+  "general": {
+    "subtotal": 3.85,
+    "tax": 0.21,
+    "total": 4.06
+  },
+  "items": [
+    {
+      "name": "Diet Pepsi Cola Soda Pop, 20 fl oz Bottle",
+      "price": 2.5,
+      "link": "https://www.walmart.com/ip/519936626",
+      "quantity": 1
+    },
+    {
+      "name": "Nathan's Hot Dog, Hot and Ready-To-Eat",
+      "price": 1.35,
+      "link": "https://www.walmart.com/ip/Nathan-s-Hot-Dog-Hot-and-Ready-To-Eat/477652571",
+      "quantity": 1
+    }
+  ]
+}

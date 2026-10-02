@@ -1,0 +1,24 @@
+{
+  "general": {
+    "subtotal": 9.57,
+    "tax": 0.53,
+    "total": 10.1
+  },
+  "items": [
+    {
+      "name": "Mtn Dew 20oz",
+      "price": 2.79,
+      "quantity": 1
+    },
+    {
+      "name": "HF Sausage Egg Croissant",
+      "price": 3.49,
+      "quantity": 1
+    },
+    {
+      "name": "HF Jr Cheeseburger",
+      "price": 3.29,
+      "quantity": 1
+    }
+  ]
+}

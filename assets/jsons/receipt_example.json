@@ -7,10 +7,12 @@
     {
       "name": "Walmart item 1",
       "price": 5.54,
+      "quantity": 1,
       "link": "Only find links for Walmart purchases"
     },
     {
       "name": "Generic item 2",
+      "quantity": 1,
       "price": 5.57
     }
   ]

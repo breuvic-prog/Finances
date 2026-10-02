@@ -1,0 +1,24 @@
+{
+  "general": {
+    "subtotal": 12.77,
+    "tax": 0.34,
+    "total": 13.11
+  },
+  "items": [
+    {
+      "name": "KBS Cookie Button 12CT",
+      "price": 6.49,
+      "quantity": 1
+    },
+    {
+      "name": "HF Sausage Egg Croissant",
+      "price": 3.49,
+      "quantity": 1
+    },
+    {
+      "name": "Diet Pepsi 20oz",
+      "price": 2.79,
+      "quantity": 1
+    }
+  ]
+}

@@ -1,5 +1,6 @@
 """Imports"""
 from tkinter import filedialog
+from zipfile import BadZipFile, ZipFile
 
 from classes.custom_tk_components.tk_link_class import TkLink
 from classes.custom_tk_components.tk_title_class import TkTitle
@@ -67,11 +68,20 @@ class ReceiptsInputPage(LeafPage):
         if self._zip_path is None:
             self._zip_warning_label.activate()
         else:
-            #Delete instructions.zip
-            #FileManager.delete(self._instructions_zip_path)
+            # Check the uploaded ZIP before deleting the current receipts.
+            with ZipFile(self._zip_path) as archive:
+                corrupt_file = archive.testzip()
+                if corrupt_file is not None:
+                    raise BadZipFile(f"Receipt ZIP contains a corrupt file: {corrupt_file}")
+
+            # Remove the previous receipt JSONs before extracting the new set.
+            if PathManager.exists(Paths.RECEIPTS):
+                for receipt_file_name in FileManager.get_files_at_location(Paths.RECEIPTS):
+                    if receipt_file_name.lower().endswith(".json"):
+                        FileManager.delete(PathManager.join(Paths.RECEIPTS, receipt_file_name))
 
             #Extracts the receipt files from the zip file
-            FolderManager.unzip(path = self._instructions_zip_path,
+            FolderManager.unzip(path = self._zip_path,
                                 destination_path = Paths.RECEIPTS)
 
 

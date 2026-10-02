@@ -1,0 +1,93 @@
+{
+  "general": {
+    "subtotal": 244.22,
+    "tax": 4.31,
+    "total": 248.53
+  },
+  "items": [
+    {
+      "name": "Maruchan Instant Lunch Chicken Flavor Ramen Noodles, 6 Pack",
+      "price": 3.08,
+      "link": "https://www.walmart.com/ip/10450896",
+      "quantity": 5
+    },
+    {
+      "name": "Jimmy Dean Sausage, Egg & Cheese Croissant Breakfast Sandwiches",
+      "price": 10.31,
+      "link": "https://www.walmart.com/search?q=077900503080",
+      "quantity": 3
+    },
+    {
+      "name": "Diet Pepsi",
+      "price": 10.77,
+      "link": "https://www.walmart.com/search?q=012000171850",
+      "quantity": 2
+    },
+    {
+      "name": "Capri Sun Fruit Punch",
+      "price": 8.52,
+      "link": "https://www.walmart.com/search?q=087684005120",
+      "quantity": 1
+    },
+    {
+      "name": "Capri Sun 30 Pack Pacific Cooler",
+      "price": 8.52,
+      "link": "https://www.walmart.com/search?q=087684010250",
+      "quantity": 1
+    },
+    {
+      "name": "Great Value 8 lb Chicken Breast",
+      "price": 21.38,
+      "link": "https://www.walmart.com/search?q=078742037150",
+      "quantity": 2
+    },
+    {
+      "name": "Tide Liquid Laundry Detergent, Original",
+      "price": 22.45,
+      "link": "https://www.walmart.com/search?q=030772235830",
+      "quantity": 1
+    },
+    {
+      "name": "Campbell's Condensed Soup",
+      "price": 1.15,
+      "link": "https://www.walmart.com/search?q=051000010310",
+      "quantity": 2
+    },
+    {
+      "name": "Pepperoni",
+      "price": 10.48,
+      "link": "https://www.walmart.com/search?q=037600804670",
+      "quantity": 1
+    },
+    {
+      "name": "Old Spice Invisible Solid Deodorant",
+      "price": 4.02,
+      "link": "https://www.walmart.com/search?q=012044056670",
+      "quantity": 2
+    },
+    {
+      "name": "Pantene Hair Care Product",
+      "price": 5.71,
+      "link": "https://www.walmart.com/search?q=080878194880",
+      "quantity": 1
+    },
+    {
+      "name": "Crest Toothpaste with Scope Outlast",
+      "price": 3.57,
+      "link": "https://www.walmart.com/search?q=037000670660",
+      "quantity": 1
+    },
+    {
+      "name": "Old Wisconsin Turkey Sausage Snack Sticks",
+      "price": 14.8,
+      "link": "https://www.walmart.com/search?q=073170327000",
+      "quantity": 2
+    },
+    {
+      "name": "Dymatize ISO100 Cocoa Protein Powder",
+      "price": 34.4,
+      "link": "https://www.walmart.com/search?q=705016356200",
+      "quantity": 1
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "general": {
+    "subtotal": 18.85,
+    "tax": 0.68,
+    "total": 19.53
+  },
+  "items": [
+    {
+      "name": "KBS Cookie Button 12CT",
+      "price": 6.49,
+      "quantity": 1
+    },
+    {
+      "name": "HF Cheese Breadsticks",
+      "price": 3.29,
+      "quantity": 1
+    },
+    {
+      "name": "HF Jr Chicken Sandwich",
+      "price": 2.99,
+      "quantity": 1
+    },
+    {
+      "name": "HF Jr Cheeseburger",
+      "price": 3.29,
+      "quantity": 1
+    },
+    {
+      "name": "Mtn Dew 20oz",
+      "price": 2.79,
+      "quantity": 1
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "general": {
+    "subtotal": 6.72,
+    "tax": 0.25,
+    "total": 6.97
+  },
+  "items": [
+    {
+      "name": "Hot Food",
+      "price": 4.47,
+      "link": "https://www.walmart.com/search?q=263606600000",
+      "quantity": 1
+    },
+    {
+      "name": "KIT KAT King Size",
+      "price": 2.25,
+      "link": "https://www.walmart.com/search?q=034000002290",
+      "quantity": 1
+    }
+  ]
+}

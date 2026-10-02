@@ -1,0 +1,24 @@
+{
+  "general": {
+    "subtotal": 8.77,
+    "tax": 0.48,
+    "total": 9.25
+  },
+  "items": [
+    {
+      "name": "HF SAUSAGE EGG CROISSANT",
+      "price": 3.49,
+      "quantity": 1
+    },
+    {
+      "name": "HS HOT DOG 5:1",
+      "price": 2.49,
+      "quantity": 1
+    },
+    {
+      "name": "MTN DEW 20OZ",
+      "price": 2.79,
+      "quantity": 1
+    }
+  ]
+}
