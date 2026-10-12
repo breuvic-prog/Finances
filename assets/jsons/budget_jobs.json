@@ -1,0 +1,71 @@
+{
+  "version": 1,
+  "jobs": [
+    {
+      "id": "cfd31ff92d7a4475be139057961b306f",
+      "name": "Walmart",
+      "hourly_wage": "16.18",
+      "tax_percentage": "20",
+      "weekly_hours": [
+        "0",
+        "7.766666666666666666666666667",
+        "7.766666666666666666666666667",
+        "0",
+        "7.766666666666666666666666667",
+        "7.766666666666666666666666667",
+        "7.766666666666666666666666667"
+      ],
+      "weekly_shifts": [
+        null,
+        {
+          "start": "8:05 AM",
+          "end": "4:51 PM",
+          "unpaid_break_minutes": 60
+        },
+        {
+          "start": "8:05 AM",
+          "end": "4:51 PM",
+          "unpaid_break_minutes": 60
+        },
+        null,
+        {
+          "start": "8:05 AM",
+          "end": "4:51 PM",
+          "unpaid_break_minutes": 60
+        },
+        {
+          "start": "8:05 AM",
+          "end": "4:51 PM",
+          "unpaid_break_minutes": 60
+        },
+        {
+          "start": "8:05 AM",
+          "end": "4:51 PM",
+          "unpaid_break_minutes": 60
+        }
+      ],
+      "foods_per_shift": [
+        {
+          "grocery_item_id": 12,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 14,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 28,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 29,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 15,
+          "quantity": "1"
+        }
+      ]
+    }
+  ]
+}

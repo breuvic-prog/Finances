@@ -1,0 +1,14 @@
+{
+  "general": {
+    "subtotal": 14.99,
+    "tax": 1.05,
+    "total": 16.04
+  },
+  "items": [
+    {
+      "name": "AI Video - AI Video Generator - Weekly AI Video Creation Subs. (7 Days)",
+      "price": 14.99,
+      "quantity": 1
+    }
+  ]
+}

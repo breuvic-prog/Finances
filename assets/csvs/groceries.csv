@@ -1,2 +1,30 @@
-id,name,num_items,link
-1,herro,22,https://www.walmart.com/ip/Jimmy-Dean-Sausage-Egg-Cheese-Croissant-Sandwich-36-oz-8-Count-Frozen/12444427?classType=REGULAR&athbdg=L1200&adsRedirect=true
+id,name,price,num_items,link,unit_id
+1,Ramen,3.42,6,https://www.walmart.com/ip/Maruchan-Instant-Lunch-Chicken-Flavor-Ramen-Noodles-2-25-oz-6-Count-Shelf-Stable-Cup/10450896?classType=VARIANT&athbdg=L1200&from=/search,e40f00c298fa4d1cb1b66c859e9d470e
+2,Pepperonis,11.64,300,https://www.walmart.com/ip/HORMEL-Beef-Pork-Pepperoni-Pizza-Topping-Refrigerated-21-oz-Resealable-Plastic-Package/603633343?classType=REGULAR&from=/search,3a8f6c4649f24d24ab9b7ff21c1b313c
+3,Chicken Breasts,22.37,15,https://www.walmart.com/ip/Great-Value-All-Natural-Boneless-Skinless-Chicken-Breast-8-lb-Frozen/124757727?classType=REGULAR&from=/search,d459e4a03dfc49cfa214db55ea59bd7f
+4,Cream of Chicken,1.28,1,https://www.walmart.com/ip/Campbell-s-Condensed-Cream-of-Chicken-Soup-10-5-oz-Can/10321652?classType=REGULAR&athbdg=L1300&adsRedirect=true,c0750e4ba16b4e81a9d775f6ac4a91d2
+5,Magnesium,9.98,30,https://www.walmart.com/ip/SV-High-Absorbtion-Mag-Glycinate-250-mg-Powder-30-servings/14685823343?classType=REGULAR&from=/search,ea8f0fbd563a4ad79a6909878af4d342
+6,Potassium,6.22,60,https://www.walmart.com/ip/NoSalt-Original-Sodium-Free-Salt-Alternative-11-oz/37233033?classType=VARIANT&athbdg=L1200&from=/search,ea8f0fbd563a4ad79a6909878af4d342
+7,Sodium,1.92,122,https://www.walmart.com/ip/Morton-Salt-26-Oz/10318919?classType=VARIANT&athbdg=L1600&from=/search,ea8f0fbd563a4ad79a6909878af4d342
+8,Stevia,6.47,550,https://www.walmart.com/ip/Great-Value-Granulated-Stevia-Sweetener-No-Calorie-9-7-oz/37415081?classType=VARIANT&athbdg=L1200&from=/search,ea8f0fbd563a4ad79a6909878af4d342
+9,Lemon Packet,5.37,50,https://www.walmart.com/ip/True-Lemon-50ct/360311298?classType=REGULAR&athbdg=L1200&adsRedirect=true,a746558318f14aa291da920b6dc8d59d
+10,Gamer Supps - Energy,47.00,100,https://gamersupps.gg/products/guacamole-gamer-fart-9000-by-russianbadger-100-servings?_pos=2&_sid=a61f3a85e&_ss=r,e40f00c298fa4d1cb1b66c859e9d470e
+11,Gamer Supps - Caffeine Free,47.00,100,https://gamersupps.gg/products/guacamole-caff-free-100-servings,e40f00c298fa4d1cb1b66c859e9d470e
+12,Crunch Bars,39.98,36,,1343cce834674eb0993e4bfaf8768190
+13,Diet Pepsi,14.47,24,https://www.walmart.com/ip/Diet-Pepsi-Soda-Pop-12-fl-oz-24-Pack-Cans/929259456?classType=VARIANT&athbdg=L1300&from=/search,c0750e4ba16b4e81a9d775f6ac4a91d2
+14,Juiceboxes,16.00,30,https://www.walmart.com/ip/Capri-Sun-Fruit-Punch-flavored-Juice-Drink-Blend-30-ct-Box/20005173642?classType=REGULAR&from=/search,98ead232d8444633a03b916cb337edda
+15,Turkey Sticks,16.44,32,https://www.walmart.com/ip/Old-Wisconsin-Gluten-Free-Turkey-Sausage-Snack-Sticks-28-oz-Resealable-Plastic-Pouch/55522122?classType=REGULAR&adsRedirect=true,d8ecbd2e626c4d1d840fed967fe4a7df
+16,Jimmy Dean Sandwiches,17.97,12,https://www.walmart.com/ip/Jimmy-Dean-Sausage-Egg-Cheese-Croissant-Sandwich-54-oz-12-Count-Frozen/36406052?classType=REGULAR&from=/search,b2ab5ffdf5904367b8d888d6a2699ff7
+17,Protein Powder,38.22,20,https://www.walmart.com/ip/Dymatize-ISO100-Hydrolyzed-Whey-Isolate-Protein-Powder-Cocoa-Pebbles-20-servings/888043290?classType=VARIANT&athbdg=L1600&from=/search,e40f00c298fa4d1cb1b66c859e9d470e
+18,Multivitamins,10.37,200,https://www.walmart.com/ip/Equate-Complete-Multivitamin-Multimineral-Supplement-Tablets-Adults-200-Count/14711329?classType=VARIANT&athbdg=L1300&from=/search,753927b0ffde4334bd82001fcf1d3937
+19,Sertraline,5.00,93,,753927b0ffde4334bd82001fcf1d3937
+20,Laundry Detergent,0.00,100,https://www.walmart.com/ip/Tide-Laundry-Detergent-Liquid-Original-Scent-132-fl-oz-100-Loads-HE-Compatible/5037629800?classType=VARIANT&athbdg=L1102&from=/search,4eb03cdadd9b4adcafb96479308a18e1
+21,Bar Soap,8.37,8,"https://www.walmart.com/ip/Caress-Bar-Soap-for-Women-Daily-Silk-White-Peach-Orange-Blossom-for-All-Skin-3-75-oz-8-Ct/23711647?fulfillmentIntent=In-store&filters=%5B%7B""intent""%3A""fulfillmentIntent""%2C""values""%3A%5B""In-store""%5D%7D%5D&classType=VARIANT&adsRedirect=true",1343cce834674eb0993e4bfaf8768190
+22,Shampoo,9.97,27,"https://www.walmart.com/ip/Pantene-Pro-V-Daily-Moisture-Renewal-Shampoo-27-7-oz/155024682?fulfillmentIntent=In-store&filters=%5B%7B""intent""%3A""fulfillmentIntent""%2C""values""%3A%5B""In-store""%5D%7D%5D&classType=REGULAR&adsRedirect=true",8f4a6cf95f854ca78afe3acf73fdc4b6
+23,Q-Tips,5.37,750,"https://www.walmart.com/ip/Q-tips-Cotton-Swabs-Original-for-Home-First-Aid-and-Beauty-100-Cotton-750-Count/19399928?fulfillmentIntent=In-store&filters=%5B%7B""intent""%3A""fulfillmentIntent""%2C""values""%3A%5B""In-store""%5D%7D%5D&classType=VARIANT&athbdg=L1102&from=/search",f64b62fa99ed4bceaf33d94d18003104
+24,Deodorant,7.97,2,https://www.walmart.com/ip/Old-Spice-Aluminum-Free-Men-s-Deodorant-High-Endurance-Pure-Sport-3-4-oz-2-Pack/2114242639?from=/search,d8ecbd2e626c4d1d840fed967fe4a7df
+25,Toothepaste,3.97,1,https://www.walmart.com/ip/Crest-Premium-Plus-Scope-Toothpaste-Minty-Fresh-Flavor-5-2-oz/952439722?classType=VARIANT&from=/search,0a57e2b1ab2d42d883ee45af96d6dd88
+26,Garbage Bags,7.44,40,https://www.walmart.com/ip/Great-Value-Strong-Flex-13-Gallon-Drawstring-Tall-Kitchen-Trash-Bags-Fresh-Scent-40-Bags/13296912022?classType=VARIANT&from=/search,1f7bddc34df5433dafa42a3a17cc778b
+27,Toilet Paper,8.96,12,https://www.walmart.com/ip/Angel-Soft-2-Ply-Toilet-Paper-12-Mega-Rolls/222288904?classType=VARIANT&athbdg=L1102&adsRedirect=true,1136e9ecb7f7470890d8fc9bf134ab9a
+28,Cheese Sticks,0.00,36,https://www.walmart.com/ip/Great-Value-Colby-Monterey-Jack-Cheese-Sticks-0-75-oz-36-Count-Bag-Plastic-Packaging/633938460?classType=REGULAR&from=/search,d8ecbd2e626c4d1d840fed967fe4a7df
+29,Granola Bars,0.00,18,https://www.walmart.com/ip/Quaker-Chewy-Granola-Bar-Peanut-Butter-Chocolate-Chip-Flavor-18-Count-Granola-Bars/860033137?classType=VARIANT&athbdg=L1600&from=/search,1343cce834674eb0993e4bfaf8768190

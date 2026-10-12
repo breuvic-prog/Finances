@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import TypeVar
 
 from aenum import extend_enum
+from classes.managers.option_manager import OptionManager
 
 
 _EnumValue = TypeVar("_EnumValue", bound=StrEnum)
@@ -21,8 +22,8 @@ class EnumManager:
         if not name:
             raise ValueError(f"Enter a {label} name.")
         for member in enum_type:
-            if member.value.casefold() == name.casefold():
-                return member
+            if name.casefold() in (member.value.casefold(), OptionManager.display(member).casefold()):
+                return OptionManager.restore(member)
 
         identifier_text = unicodedata.normalize("NFKD", name).encode("ascii", "ignore").decode("ascii")
         identifier = re.sub(r"[^A-Z0-9]+", "_", identifier_text.upper()).strip("_")
@@ -46,7 +47,8 @@ class EnumManager:
         # Include any members saved since this process imported the enum.
         for member_name, value in source_members.items():
             if value.casefold() == name.casefold():
-                return extend_enum(enum_type, member_name, value)
+                member = OptionManager.restore(extend_enum(enum_type, member_name, value))
+                return OptionManager.assign_unused_color(member, enum_type)
 
         member_name = identifier
         suffix = 2
@@ -78,4 +80,5 @@ class EnumManager:
             if temporary_path is not None:
                 temporary_path.unlink(missing_ok=True)
 
-        return extend_enum(enum_type, member_name, name)
+        member = extend_enum(enum_type, member_name, name)
+        return OptionManager.assign_unused_color(member, enum_type)

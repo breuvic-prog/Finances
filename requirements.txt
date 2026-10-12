@@ -1,2 +1,6 @@
 # Additional dependency for adding enum locations and categories while the app is running.
 aenum>=3.1.16,<4
+
+# Statement reading and expense review PDF generation, including vector charts.
+PyMuPDF>=1.28,<2
+reportlab>=4.4,<5

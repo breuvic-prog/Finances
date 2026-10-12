@@ -1,8 +1,10 @@
 """Imports"""
-from enums.finances.descriptions_enum import Descriptions
+from enum import StrEnum
 
-class GroceryDescriptions(Descriptions):
+class GroceryDescriptions(StrEnum):
     FOOD = "food"
+    NEW_LAPTOP = 'New Laptop'
+    HEALTH_AND_BEAUTY = 'Health and Beauty'
 
 
 

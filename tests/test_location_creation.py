@@ -10,9 +10,11 @@ from classes.custom_tk_components import tk_table_class
 from classes.financial_transaction_class import FinancialTransaction
 from classes.general.date_class import Date
 from classes.general.dollar_amount_class import DollarAmount
-from classes.managers import enum_manager, location_manager
+from classes.managers import enum_manager, location_manager, option_manager
+from classes.managers.option_manager import OptionManager
 from classes.pages.child_pages.expense_reveiw_pages import final_review_page
 from enums.finances.locations_enum import Locations
+from enums.finances.is_essential_enum import IsEssential
 
 
 def isolate_locations(test):
@@ -22,6 +24,10 @@ def isolate_locations(test):
     if workspace.parent != tests_directory:
         raise RuntimeError("Unexpected temporary directory location.")
     test.addCleanup(temporary_directory.cleanup)
+    test.enterContext(patch.object(option_manager, "_OPTIONS_PATH", workspace / "options.json"))
+    test.enterContext(patch.object(OptionManager, "_loaded_path", None))
+    test.enterContext(patch.object(OptionManager, "_preferences", {}))
+    test.enterContext(patch.object(OptionManager, "_listeners", set()))
     enum_path = workspace / "locations_enum.py"
     members = {location.name: location.value for location in Locations}
     source = "from enum import StrEnum\n\nclass Locations(StrEnum):\n"
@@ -38,6 +44,7 @@ class LocationCreationTests(unittest.TestCase):
         self.enum_path, self.locations = isolate_locations(self)
 
     def test_saves_a_new_member_and_makes_it_available_now_and_after_restart(self):
+        existing_colors = {OptionManager.colors(member)[0] for member in self.locations}
         name = "Joe's \"Quick\" Shop"
         location = location_manager.LocationManager.create(name)
         self.assertIsInstance(location, self.locations)
@@ -50,6 +57,10 @@ class LocationCreationTests(unittest.TestCase):
         exec(self.enum_path.read_text(encoding="utf-8"), namespace)
         self.assertEqual(namespace["Locations"][location.name].value, name)
         self.assertEqual(namespace["Locations"].WALMART.value, "Walmart")
+        color = OptionManager.colors(location)
+        self.assertNotIn(color[0], existing_colors)
+        OptionManager._loaded_path = None
+        self.assertEqual(OptionManager.colors(location), color)
 
     def test_existing_names_reuse_members_without_rewriting_the_enum(self):
         original_source = self.enum_path.read_bytes()
@@ -74,7 +85,7 @@ class LocationCreationTests(unittest.TestCase):
     def test_rejects_empty_or_unusable_names_without_changing_source_or_members(self):
         original_source = self.enum_path.read_bytes()
         original_members = list(self.locations)
-        for name in ("", " \t\n", "!!!"):
+        for name in ("", " \t\n", "!!!", "Not Included", " not   INCLUDED "):
             with self.subTest(name=name), self.assertRaises(ValueError):
                 location_manager.LocationManager.create(name)
         self.assertEqual(self.enum_path.read_bytes(), original_source)
@@ -134,7 +145,8 @@ class LocationCreationWidgetTests(unittest.TestCase):
         self.transactions = [FinancialTransaction(
             date=Date(day=29, month=9, year=2026), amount=DollarAmount(-1), description="Purchase",
             location=location,
-        ) for location in (None, None, self.locations.WALMART, self.locations.NOT_INCLUDED)]
+        ) for location in (None, None, self.locations.WALMART, None)]
+        self.transactions[3].is_essential = IsEssential.NOT_INCLUDED
         self.page._transactions = self.transactions
         self.page._setup_components()
         self.table = next(widget for widget in self.page._root.winfo_children()
@@ -155,10 +167,13 @@ class LocationCreationWidgetTests(unittest.TestCase):
             self.assertGreater(button.grid_info()["column"], dropdown.grid_info()["column"])
         self.assertIsInstance(self.table._components[2][2], tk.Label)
         self.assertEqual(self.table._components[2][2].cget("text"), "Walmart")
-        excluded = self.table._components[3][2]
-        self.assertIsInstance(excluded, tk.Label)
-        self.assertEqual(excluded.cget("text"), "")
-        self.assertEqual(excluded.cget("bg"), "black")
+        excluded_location, _ = self.location_controls(3)
+        self.assertEqual(excluded_location.get(), "None")
+        self.assertNotIn("Not Included", excluded_location.cget("values"))
+        excluded_location.set("Kwik Trip")
+        excluded_location.event_generate("<<ComboboxSelected>>")
+        self.assertEqual(self.transactions[3].location, self.locations.KWIK_TRIP)
+        self.assertEqual(self.transactions[3].is_essential, IsEssential.NOT_INCLUDED)
 
     def test_creates_persists_and_assigns_a_location_only_to_the_clicked_row(self):
         first_dropdown, first_button = self.location_controls(0)

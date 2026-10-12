@@ -42,3 +42,5 @@ class PageContainer(ABC):
         # Activate the next page if one remains.
         if self._page_index < len(self._pages):
             self._pages[self._page_index].activate()
+        elif (on_complete := getattr(self, "_parent_next_method", None)) is not None:
+            on_complete()

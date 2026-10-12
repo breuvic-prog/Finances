@@ -15,13 +15,16 @@ class Locations(StrEnum):
     HUCKLEBERRYS = 'Huckleberrys'
     CULVERS = 'Culvers'
     PRAIRIE_CINEMA = 'Prairie Cinema'
-    NOT_INCLUDED = "Not Included"
     NEWEGG = 'Newegg'
     STEAM = 'Steam'
     PARCHMENT = 'Parchment'
     PROTON = 'Proton'
     FIELDPRINT = 'Fieldprint'
     NEXUS = 'Nexus'
+    STUDENT_LOANS = 'Student Loans'
+    DISCOVER = 'Discover'
+    IOWA_DEPARTMENT_OF_EDUCATION = 'Iowa Department of Education'
+    US_DEPARTMENT_OF_EDUCATION = 'US Department of Education'
 
 
 

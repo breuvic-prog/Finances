@@ -8,6 +8,9 @@ from classes.pages.root_page_class import RootPage
 import tkinter as tk
 
 
+ENABLE_EXPENSE_REVIEW = False  # Set to True to restore the expense-review step.
+
+
 class FinancesPage(RootPage):
     def __init__(self):
         self._root = tk.Tk()
@@ -25,10 +28,11 @@ class FinancesPage(RootPage):
 
     def _create_pages(self, parent_root: tk.Tk | tk.Frame,
                       parent_next_method: Callable) -> list[ChildPage]:
-        return [ExpenseReviewPage(parent_root = parent_root,
-                                  parent_next_method = parent_next_method),
-                BudgetPlanningPage(parent_root = parent_root,
-                                   parent_next_method = parent_next_method)]
+        pages = []
+        if ENABLE_EXPENSE_REVIEW:
+            pages.append(ExpenseReviewPage(parent_root=parent_root, parent_next_method=parent_next_method))
+        pages.append(BudgetPlanningPage(parent_root=parent_root, parent_next_method=parent_next_method))
+        return pages
 
 
 

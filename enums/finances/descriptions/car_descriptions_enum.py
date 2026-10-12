@@ -1,8 +1,9 @@
 """Imports"""
-from enums.finances.descriptions_enum import Descriptions
+from enum import StrEnum
 
-class CarDescriptions(Descriptions):
+class CarDescriptions(StrEnum):
     #Car
+    CAR_PAYMENT = "Car Payment"
     GAS = "Gas"
     LOAN = "Car Loan"
     INSURANCE = "Car Insurance"

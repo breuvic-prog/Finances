@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "foods": [
+    {
+      "food_id": "388da0f1-d8d7-4802-b163-31c115c2a43f",
+      "name": "Chicken Ramen",
+      "ingredients": [
+        {
+          "grocery_item_id": 3,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 2,
+          "quantity": "10"
+        },
+        {
+          "grocery_item_id": 1,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 4,
+          "quantity": "0.0666"
+        }
+      ]
+    },
+    {
+      "food_id": "7639a37f-eb0d-477d-8c7f-e5b3763fdc32",
+      "name": "Electrolyte Mix",
+      "ingredients": [
+        {
+          "grocery_item_id": 6,
+          "quantity": "0.125"
+        },
+        {
+          "grocery_item_id": 5,
+          "quantity": "0.125"
+        },
+        {
+          "grocery_item_id": 7,
+          "quantity": "0.5"
+        },
+        {
+          "grocery_item_id": 8,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 9,
+          "quantity": "1"
+        },
+        {
+          "grocery_item_id": 11,
+          "quantity": "1"
+        }
+      ]
+    }
+  ]
+}

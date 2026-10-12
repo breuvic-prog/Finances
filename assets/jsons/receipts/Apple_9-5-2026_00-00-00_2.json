@@ -1,0 +1,14 @@
+{
+  "general": {
+    "subtotal": 12.99,
+    "tax": 0.91,
+    "total": 13.9
+  },
+  "items": [
+    {
+      "name": "Duet Dating App: Chat & Meet - Premium 1 week (7 Days)",
+      "price": 12.99,
+      "quantity": 1
+    }
+  ]
+}

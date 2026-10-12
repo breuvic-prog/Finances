@@ -2,6 +2,7 @@
 from classes.pages.branch_page_class import BranchPage
 import tkinter as tk
 from collections.abc import Callable
+from classes.managers.review_files_manager import ReviewFilesManager
 
 from classes.pages.child_page_class import ChildPage
 from classes.pages.child_pages.expense_reveiw_pages.checking_account_expenses_page_class import \
@@ -14,16 +15,17 @@ from classes.pages.child_pages.expense_reveiw_pages.reciepts_input_page import R
 class ExpenseReviewPage(BranchPage):
     def __init__(self, parent_root: tk.Tk|tk.Frame,
                  parent_next_method: Callable):
+        self._review_files = ReviewFilesManager()
         super().__init__(parent_root = parent_root,
                          parent_next_method = parent_next_method)
 
     def _create_pages(self, parent_root: tk.Tk | tk.Frame,
                       parent_next_method: Callable) -> list[ChildPage]:
         return [CreditCardExpensesPage(parent_root = parent_root,
-                                       parent_next_method = parent_next_method),
+                                       parent_next_method = parent_next_method, review_files=self._review_files),
                 CheckingAccountExpensesPage(parent_root = parent_root,
-                                            parent_next_method = parent_next_method),
+                                            parent_next_method = parent_next_method, review_files=self._review_files),
                 ReceiptsInputPage(parent_root = parent_root,
-                                  parent_next_method = parent_next_method),
+                                  parent_next_method = parent_next_method, review_files=self._review_files),
                 FinalReviewPage(parent_root = parent_root,
-                                parent_next_method = parent_next_method)]
+                                parent_next_method = parent_next_method, review_files=self._review_files)]

@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "foods": [
+    {
+      "grocery_item_id": 10,
+      "quantity": "1"
+    },
+    {
+      "grocery_item_id": 17,
+      "quantity": "1"
+    }
+  ]
+}

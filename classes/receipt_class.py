@@ -2,6 +2,7 @@
 from classes.grocery_item import GroceryItem
 from classes.general.date_class import Date
 from classes.general.time_class import Time
+import json
 
 class Receipt:
     def __init__(self, location:str,
@@ -10,7 +11,9 @@ class Receipt:
                  subtotal:float,
                  taxes:float,
                  total:float,
-                 items:list[GroceryItem]):
+                 items:list[GroceryItem],
+                 raw_contents:str|None = None,
+                 source_file_name:str|None = None):
         self._location = location
         self._date = date
         self._time = time
@@ -18,6 +21,8 @@ class Receipt:
         self._taxes = taxes
         self._total = total
         self._items = items
+        self._raw_contents = raw_contents
+        self._source_file_name = source_file_name
 
     @property
     def location(self):
@@ -41,6 +46,25 @@ class Receipt:
     @property
     def items(self):
         return self._items
+
+    @property
+    def source_file_name(self) -> str | None:
+        return self._source_file_name
+
+    @property
+    def raw_contents(self) -> str:
+        if self._raw_contents is not None:
+            return self._raw_contents
+        items = []
+        for item in self.items:
+            data = {"name": item.name, "price": item.price, "quantity": item.quantity}
+            for field in ("link", "category", "description", "is_essential"):
+                value = getattr(item, field)
+                if value is not None:
+                    data[field] = value
+            items.append(data)
+        return json.dumps({"general": {"subtotal": self.subtotal, "tax": self.taxes, "total": self.total},
+                           "items": items}, indent=2, ensure_ascii=False)
 
     def __str__(self):
         return_string = "----Receipt----\n"

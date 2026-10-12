@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "units": [
+    {
+      "id": "3961381676c443edb5a2a83650a50e2b",
+      "name": "Cup",
+      "plural": "Cups"
+    },
+    {
+      "id": "3a8f6c4649f24d24ab9b7ff21c1b313c",
+      "name": "Slice",
+      "plural": "Slices"
+    },
+    {
+      "id": "d459e4a03dfc49cfa214db55ea59bd7f",
+      "name": "Container",
+      "plural": "Containers"
+    },
+    {
+      "id": "c0750e4ba16b4e81a9d775f6ac4a91d2",
+      "name": "Can",
+      "plural": "Cans"
+    },
+    {
+      "id": "ea8f0fbd563a4ad79a6909878af4d342",
+      "name": "Teaspoon",
+      "plural": "Teaspoons"
+    },
+    {
+      "id": "a746558318f14aa291da920b6dc8d59d",
+      "name": "Packet",
+      "plural": "Packets"
+    },
+    {
+      "id": "e40f00c298fa4d1cb1b66c859e9d470e",
+      "name": "Serving",
+      "plural": "Servings"
+    },
+    {
+      "id": "1343cce834674eb0993e4bfaf8768190",
+      "name": "Bar",
+      "plural": "Bars"
+    },
+    {
+      "id": "98ead232d8444633a03b916cb337edda",
+      "name": "Pouch",
+      "plural": "Pouches"
+    },
+    {
+      "id": "d8ecbd2e626c4d1d840fed967fe4a7df",
+      "name": "Stick",
+      "plural": "Sticks"
+    },
+    {
+      "id": "b2ab5ffdf5904367b8d888d6a2699ff7",
+      "name": "Sandwich",
+      "plural": "Sandwiches"
+    },
+    {
+      "id": "753927b0ffde4334bd82001fcf1d3937",
+      "name": "Pill",
+      "plural": "Pills"
+    },
+    {
+      "id": "4eb03cdadd9b4adcafb96479308a18e1",
+      "name": "Load",
+      "plural": "Loads"
+    },
+    {
+      "id": "8f4a6cf95f854ca78afe3acf73fdc4b6",
+      "name": "Fluid Ounce",
+      "plural": "Fluid Ounces"
+    },
+    {
+      "id": "f64b62fa99ed4bceaf33d94d18003104",
+      "name": "Q-Tip",
+      "plural": "Q-Tips"
+    },
+    {
+      "id": "0a57e2b1ab2d42d883ee45af96d6dd88",
+      "name": "Tube",
+      "plural": "Tubes"
+    },
+    {
+      "id": "1f7bddc34df5433dafa42a3a17cc778b",
+      "name": "Bag",
+      "plural": "Bags"
+    },
+    {
+      "id": "1136e9ecb7f7470890d8fc9bf134ab9a",
+      "name": "Roll",
+      "plural": "Rolls"
+    }
+  ]
+}

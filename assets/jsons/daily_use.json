@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "grocery_item_id": 23,
+      "quantity": "2"
+    },
+    {
+      "food_id": "7639a37f-eb0d-477d-8c7f-e5b3763fdc32",
+      "quantity": "1"
+    },
+    {
+      "grocery_item_id": 16,
+      "quantity": "1"
+    },
+    {
+      "food_id": "388da0f1-d8d7-4802-b163-31c115c2a43f",
+      "quantity": "1"
+    },
+    {
+      "grocery_item_id": 13,
+      "quantity": "2"
+    },
+    {
+      "grocery_item_id": 19,
+      "quantity": "1"
+    },
+    {
+      "grocery_item_id": 18,
+      "quantity": "1"
+    },
+    {
+      "grocery_item_id": 21,
+      "monthly_quantity": "4"
+    },
+    {
+      "grocery_item_id": 26,
+      "monthly_quantity": "4"
+    }
+  ]
+}

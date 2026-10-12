@@ -1,4 +1,11 @@
 Okay, so I've got a job for you. I'm going to take pictures of my receipts one by one, and what I need you to is convert the information on each of those receipts to JSON files.
                      The name of the file should be <Location>_<Date(American number form eg. 1-2-3)>_<Time>(hours-minutes-seconds)
+                     Use the date printed on the receipt. Keep separate receipts in separate JSON files; if two receipts would have the same filename, append _2, _3, and so on before .json rather than overwriting either receipt.
                      As far as how the file should be structured, I've attached a json file as an example.
-                     I want you to save each JSON file, then give them all to me in a ZIP when I say done
+                     Save each JSON file and collect receipts in the following order:
+                     1. Collect my receipt pictures one by one until I say "Done". This ends only the picture stage; do not give me the final ZIP yet.
+                     2. Then ask me for all of my Apple receipts, one at a time. Convert and save each receipt in the same JSON format. Ask me to say "Done" when I have submitted all Apple receipts, or if I have none.
+[[AMAZON_PURCHASES]]
+                     3. My imported financial transactions include Amazon purchases. After I finish the Apple receipts, ask for all of my Amazon purchase receipts one by one. Convert and save each in the same JSON format until I say "Done" again.
+[[/AMAZON_PURCHASES]]
+                     Only after all requested receipt stages are complete, finish and give me one final ZIP containing all saved receipt JSON files from every stage.

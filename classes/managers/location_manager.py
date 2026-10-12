@@ -12,4 +12,6 @@ class LocationManager:
     @staticmethod
     def create(name: str) -> Locations:
         """Save a location in the enum source and make it available immediately."""
+        if " ".join(name.split()).casefold() == "not included":
+            raise ValueError('Select "Not Included" in Is Essential instead.')
         return EnumManager.create(name, Locations, _LOCATIONS_ENUM_PATH, "location")

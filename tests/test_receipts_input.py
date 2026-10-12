@@ -6,6 +6,7 @@ from unittest.mock import Mock, patch
 from zipfile import BadZipFile, ZipFile
 
 from classes.pages.child_pages.expense_reveiw_pages import reciepts_input_page
+from classes.managers.review_files_manager import ReviewFilesManager
 
 
 class ReceiptsInputTests(unittest.TestCase):
@@ -29,6 +30,7 @@ class ReceiptsInputTests(unittest.TestCase):
         self.addCleanup(paths_patch.stop)
 
         self.page = object.__new__(reciepts_input_page.ReceiptsInputPage)
+        self.page._review_files = ReviewFilesManager()
         self.page._zip_warning_label = Mock()
         self.page._parent_next_method = Mock()
         self.page._zip_path = None
@@ -97,6 +99,31 @@ class ReceiptsInputTests(unittest.TestCase):
 
         self.assertTrue((self.receipts_directory / "New_9-30-2026.json").is_file())
         self.page._parent_next_method.assert_called_once_with()
+
+    def test_cleanup_removes_imported_files_and_preserves_the_upload_and_unrelated_files(self):
+        notes = self.receipts_directory / "notes.txt"
+        notes.write_bytes(b"keep")
+        self.make_archive()
+        self.page._finalize()
+        self.assertTrue((self.receipts_directory / "New_9-30-2026.json").exists())
+        self.page._review_files.cleanup()
+        self.assertEqual(list(self.receipts_directory.iterdir()), [notes])
+        self.assertTrue(Path(self.page._zip_path).is_file())
+
+    def test_archive_paths_outside_receipts_are_rejected_before_changing_existing_files(self):
+        existing = self.receipts_directory / "Existing.json"
+        existing.write_bytes(b"existing receipt")
+        outside = self.workspace / "outside.json"
+        outside.write_bytes(b"keep")
+        archive_path = self.workspace / "unsafe.zip"
+        with ZipFile(archive_path, "w") as archive:
+            archive.writestr("../outside.json", "new contents")
+        self.page._zip_path = str(archive_path)
+        with self.assertRaisesRegex(ValueError, "outside its working directory"):
+            self.page._finalize()
+        self.assertEqual(existing.read_bytes(), b"existing receipt")
+        self.assertEqual(outside.read_bytes(), b"keep")
+        self.page._parent_next_method.assert_not_called()
 
 
 if __name__ == "__main__":
